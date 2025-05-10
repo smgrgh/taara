@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Aditi Effect</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #2c003e, #4a005f);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+      font-family: 'Brush Script MT', cursive;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .icon {
+      font-size: 2em;
+      flex-shrink: 0;
+    }
+
+    .quote {
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .ending-line {
+      margin-top: 60px;
+      font-style: italic;
+      font-size: 1.5em;
+      color: #f9c5ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h1>The Aditi Effect</h1>
+
+    <div class="card"><div class="icon">🌙</div><div class="quote">She turns overthinking into calm with just a 'shushh'.</div></div>
+    <div class="card"><div class="icon">☕</div><div class="quote">She brews warmth the way others make coffee — daily, effortlessly.</div></div>
+    <div class="card"><div class="icon">🧠</div><div class="quote">She remembers the things I forget — like peace, patience, and where I left my soul.</div></div>
+    <div class="card"><div class="icon">✨</div><div class="quote">When she walks into a room, the mood forgets its sadness and sits up straight.</div></div>
+    <div class="card"><div class="icon">🖋️</div><div class="quote">She speaks in metaphors, but loves in specifics — a glance here, a hand squeeze there.</div></div>
+
+    <div class="ending-line">
+      “You don’t just exist in my world — you enchant it.”
+    </div>
+  </div>
+
+  <script>
+    // Simple scroll animation
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+</body>
+</html>
